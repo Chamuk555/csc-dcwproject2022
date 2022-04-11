@@ -1,7 +1,7 @@
 const Nav = () => {
   return (
     <>
-      <div className="bg-black sticky min-w-screen w-full h-[50px] flex justify-center">
+      <div className="!z-30 bg-black shadow-sm shadow-inherit sticky top-0 min-w-screen w-full h-[50px] flex justify-center px-5">
         <div className="max-w-7xl w-full flex justify-between p-1 items-center">
           <div>
             <img
@@ -10,7 +10,7 @@ const Nav = () => {
               className="object-cover h-full w-16"
             />
           </div>
-          <div className="w-auto gap-4 flex text-white">
+          <div className="hidden md:flex w-auto gap-4  text-white">
             <p>หน้าแรก</p>
             <p>สารบัญแมว</p>
             <p>บทความ</p>

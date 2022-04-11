@@ -13,8 +13,96 @@ export default function Home() {
 
       <main>
         <Nav />
-        <div>
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        <div className="min-h-screen min-w-full w-full h-full bg-[url('/assets/wepik-2022311-2361.png')] bg-cover bg-no-repeat bg-center"></div>
+        <div className="w-full h-full bg-black flex justify-center p-5">
+          <div className="max-w-7xl w-full p-1 ">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <img
+                  src="/assets/card1.png"
+                  alt="card1"
+                  className="object-cover object-left-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                />
+              </div>
+              <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <img
+                  src="/assets/card2.png"
+                  alt="card2"
+                  className="object-cover w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                />
+              </div>
+
+              <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <img
+                  src="/assets/card3.png"
+                  alt="card3"
+                  className="object-cover object-right-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                />
+              </div>
+            </div>
+
+            <div className="h-min overflow-hidden flex flex-col md:flex-row w-full relative ">
+              <img
+                src="/assets/wepik-2022311-23542.png"
+                alt="blackcat"
+                className="object-contain h-[500px] object-left "
+              />
+
+              <div className="p-5 text-white w-full h-auto flex justify-center items-center relative ">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi,
+                libero modi pariatur accusantium odio debitis cupiditate tempora
+                dolorum dolores corporis odit recusandae voluptas cumque
+                laudantium magnam illo nisi perferendis iure.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full h-full bg-white flex justify-center p-5">
+          <div className="max-w-7xl w-full p-1">
+            <div className="h-min overflow-hidden flex flex-col md:flex-row w-full relative ">
+              <div className="p-5 text-black w-full h-auto flex justify-center items-center relative ">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi,
+                libero modi pariatur accusantium odio debitis cupiditate tempora
+                dolorum dolores corporis odit recusandae voluptas cumque
+                laudantium magnam illo nisi perferendis iure.
+              </div>
+              <img
+                src="/assets/wepik-2022312-0925.png"
+                alt="blackcat"
+                className="object-contain h-[500px] object-right "
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full h-full bg-black flex justify-center p-5">
+          <div className="max-w-7xl w-full p-1">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <img
+                  src="/assets/card1.png"
+                  alt="card1"
+                  className="object-cover object-left-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                />
+              </div>
+              <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <img
+                  src="/assets/card2.png"
+                  alt="card2"
+                  className="object-cover w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                />
+              </div>
+
+              <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <img
+                  src="/assets/card3.png"
+                  alt="card3"
+                  className="object-cover object-right-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </>
