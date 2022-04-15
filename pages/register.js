@@ -3,7 +3,7 @@ import axios from "axios";
 
 const URL = `http://localhost/api`;
 
-const register = ({ token }) => {
+const Register = ({ token }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -106,7 +106,7 @@ const register = ({ token }) => {
   );
 };
 
-export default register;
+export default Register;
 
 export function getServerSideProps({ req, res }) {
   return { props: { token: req.cookies.token || "" } };
