@@ -1,3 +1,5 @@
+import { Link, animateScroll as scroll } from "react-scroll";
+
 const Nav = () => {
   return (
     <>
@@ -11,11 +13,60 @@ const Nav = () => {
             />
           </div>
           <div className="hidden md:flex w-auto gap-4  text-white">
-            <p>หน้าแรก</p>
-            <p>สารบัญแมว</p>
-            <p>บทความ</p>
-            <p>รูปภาพ</p>
-            <p>โรงพยาบาลแมว</p>
+            <Link
+              activeClass="active"
+              to="head"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <p className="cursor-pointer">หน้าแรก</p>
+            </Link>
+
+            <Link
+              activeClass="active"
+              to="section1"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <p className="cursor-pointer">สารบัญแมว</p>
+            </Link>
+
+            <Link
+              activeClass="active"
+              to="section2"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <p className="cursor-pointer">บทความ</p>
+            </Link>
+
+            <Link
+              activeClass="active"
+              to="section3"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <p className="cursor-pointer">รูปภาพ</p>
+            </Link>
+
+            <Link
+              activeClass="active"
+              to="section4"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <p className="cursor-pointer">โรงพยาบาลแมว</p>
+            </Link>
           </div>
           <div className="flex text-white">
             <p className="border-2 border-white px-2 py-1">ลงชื่อเข้าใช้</p>
