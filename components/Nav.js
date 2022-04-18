@@ -1,4 +1,5 @@
 import { Link, animateScroll as scroll } from "react-scroll";
+import Linkto from "next/link";
 
 const Nav = () => {
   return (
@@ -69,7 +70,11 @@ const Nav = () => {
             </Link>
           </div>
           <div className="flex text-white">
-            <p className="border-2 border-white px-2 py-1">ลงชื่อเข้าใช้</p>
+            <Linkto href="/login">
+              <button className="border-2 border-white px-2 py-1 hover:bg-white hover:text-black">
+                ลงชื่อเข้าใช้
+              </button>
+            </Linkto>
           </div>
         </div>
       </div>
