@@ -88,7 +88,7 @@ const Register = ({ token }) => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
-                  type="paaword"
+                  type="password"
                   name="password"
                   placeholder="Password"
                   className="block text-sm py-3 px-4 rounded-lg w-full border outline-none"

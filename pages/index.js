@@ -28,7 +28,7 @@ export default function Home() {
               className="border-2 p-2 w-48 border-white text-white "
               onClick={play}
             >
-              Click Me
+              ให้อาหารน้อง
             </button>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function Home() {
             <div className="w-full flex justify-center pt-5">
               <Link href="/gallery">
                 <button className="border-2 p-2 w-48 border-white text-white hover:bg-white hover:text-black ">
-                  View Gallery
+                  แกลอรี่แมว
                 </button>
               </Link>
             </div>
@@ -134,16 +134,15 @@ export default function Home() {
         >
           <div className="max-w-7xl w-full p-1">
             <div className="h-min overflow-hidden flex flex-col md:flex-row w-full relative ">
-              <div className="p-5 text-black w-full h-auto flex justify-center flex-col relative ">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi,
-                libero modi pariatur accusantium odio debitis cupiditate tempora
-                dolorum dolores corporis odit recusandae voluptas cumque
-                laudantium magnam illo nisi perferendis iure.
-                <div className="py-5">
-                  <button className="border-2 p-2 w-48 border-black text-black hover:bg-black hover:text-white ">
-                    อ่านเพิ่มเติม
-                  </button>
-                </div>
+              <div className="p-5 text-black text-xl w-full h-auto flex justify-center flex-col relative ">
+                โรงพยาบาลสัตว์ รักษาแมว ใกล้ฉัน
+                <Link href="/hospital">
+                  <div className="py-5">
+                    <button className="border-2 p-2 w-48 border-black text-black hover:bg-black hover:text-white ">
+                      เพิ่มเติม
+                    </button>
+                  </div>
+                </Link>
               </div>
               <img
                 src="/assets/wepik-2022312-0925.png"

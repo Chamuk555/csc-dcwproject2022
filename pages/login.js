@@ -4,11 +4,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const URL = `http://localhost/api/login`;
+const URL = `http://localhost/api`;
 
-const Login = () => {
+const Login = ({ token }) => {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const [ischeck, setIscheck] = useState("");
@@ -16,12 +16,12 @@ const Login = () => {
   const login = async (req, res) => {
     try {
       let result = await axios.post(
-        URL,
+        `${URL}/login`,
         { username, password, ischeck },
         { withCredentials: true }
       );
-
       setStatus("Sign-in success");
+      router.push("/dashboard");
     } catch (e) {
       console.log("error: ", JSON.stringify(e.response));
       setStatus(JSON.stringify(e.response).substring(20, 46));
@@ -64,17 +64,20 @@ const Login = () => {
           <div className="w-full flex justify-center items-center h-full">
             <div className="py-12 px-12 bg-white rounded-2xl shadow-xl z-20 ">
               <div>
-                <h1 className="text-3xl font-semibold text-center mb-4 cursor-pointer">
+                <h1 className="text-3xl font-semibold text-center mb-2 cursor-pointer">
                   User Login
                 </h1>
+                <span className="text-base mb-2">
+                  status : <span className="text-red-600">{status}</span>
+                </span>
               </div>
               <div className="space-y-4">
                 <input
                   type="text"
-                  name="email"
-                  placeholder="Email Addres"
+                  name="username"
+                  placeholder="Username"
                   className="block text-sm py-3 px-4 rounded-lg w-full border outline-none"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                   type="password"
@@ -114,3 +117,7 @@ const Login = () => {
 };
 
 export default Login;
+
+export function getServerSideProps({ req, res }) {
+  return { props: { token: req.cookies.token || "" } };
+}
