@@ -53,25 +53,46 @@ export default function Home() {
           <div className="max-w-7xl w-full p-1 ">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <div className="absolute bg-white w-full h-full opacity-0 hover:opacity-80 duration-200 flex  justify-center items-center">
+                  <Link href="/thaicats">
+                    <button className="border-2 p-2 text-2xl border-black text-white bg-black w-full ">
+                      แมวไทย
+                    </button>
+                  </Link>
+                </div>
                 <img
                   src="/assets/card1.png"
                   alt="card1"
-                  className="object-cover object-left-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                  className="object-cover object-left-top w-full h-full hover:scale-110 transition-transform duration-100"
                 />
               </div>
               <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <div className="absolute bg-white w-full h-full opacity-0 hover:opacity-80 duration-200 flex  justify-center items-center">
+                  <Link href="/intercats">
+                    <button className="border-2 p-2 text-2xl border-black text-white bg-black w-full ">
+                      แมวต่างชาติ
+                    </button>
+                  </Link>
+                </div>
                 <img
                   src="/assets/card2.png"
                   alt="card2"
-                  className="object-cover w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                  className="object-cover w-full h-full hover:scale-110 transition-transform duration-100 "
                 />
               </div>
 
               <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
+                <div className="absolute bg-white w-full h-full opacity-0 hover:opacity-80 duration-200 flex  justify-center items-center">
+                  <Link href="/specialcats">
+                    <button className="border-2 p-2 text-2xl border-black text-white bg-black w-full ">
+                      แมวแปลกๆ
+                    </button>
+                  </Link>
+                </div>
                 <img
                   src="/assets/card3.png"
                   alt="card3"
-                  className="object-cover object-right-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                  className="object-cover object-right-top w-full h-full hover:scale-110 transition-transform duration-100 "
                 />
               </div>
             </div>
