@@ -53,6 +53,11 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
+"@fancyapps/ui@^4.0.26":
+  "integrity" "sha512-BcqK/lOMQ0IbR7DUcNK6olUCaOWlEqW7Oi3qdltur87zs6doFnno5fyKv9cDMRnuH4IxudU7Cz1zRzSUfsDWJA=="
+  "resolved" "https://registry.npmjs.org/@fancyapps/ui/-/ui-4.0.26.tgz"
+  "version" "4.0.26"
+
 "@humanwhocodes/config-array@^0.9.2":
   "integrity" "sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw=="
   "resolved" "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.9.5.tgz"

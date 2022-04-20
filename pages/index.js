@@ -2,13 +2,26 @@ import Head from "next/head";
 import Image from "next/image";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
 import Link from "next/link";
+import { Fancybox } from "@fancyapps/ui";
 
 export default function Home() {
   const [play] = useSound("/Cute-cat-effect.mp3");
 
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      Toolbar: {
+        display: [
+          { id: "zoom", position: "left" },
+          { id: "download", position: "left" },
+          { id: "counter", position: "center" },
+          { id: "close", position: "right" },
+        ],
+      },
+    });
+  }, []);
   return (
     <>
       <Head>
@@ -74,14 +87,23 @@ export default function Home() {
               />
 
               <div className="p-5 text-white w-full h-auto flex flex-col justify-center  relative ">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi,
-                libero modi pariatur accusantium odio debitis cupiditate tempora
-                dolorum dolores corporis odit recusandae voluptas cumque
-                laudantium magnam illo nisi perferendis iure.
+                <p className="text-2xl">เรื่องควรรู้ของทาสแมว...มือใหม่ !!</p>
+                แมว เป็นสัตว์ที่รักอิสระ ที่มีความน่ารัก ขี้เล่น
+                และเป็นสัตว์ที่รักความสะอาด
+                ดังนั้นแมวจึงเป็นสัตว์เลี้ยงยอดนิยมที่คนเลือกนำมาเลี้ยง
+                และจำเป็นต้องได้รับการดูแลอย่างเหมาะสมสำหรับผู้เลี้ยงแมวมือใหม่
+                ก่อนที่จะทำการเลือกแมวมาเลี้ยงนั้น
+                สิ่งแรกที่คุณต้องตัดสินใจไม่ใช่ว่าจะเลือกตัวไหนมาเลี้ยงดี
+                แต่ต้องติดสินใจว่าคุณเหมาะสมที่จะเลี้ยงแมวหรือไม่
+                โดยคำนึงถึงปัจจัยหลาย ๆ อย่าง เช่น
+                การให้เวลาเลี้ยงดูเจ้าแมวเหมียว การให้อาหาร
+                การทำความสะอาดกระบะทราย รวมทั้งค่าใช้จ่ายต่าง ๆ เป็นต้น..
                 <div className="py-5">
-                  <button className="border-2 p-2 w-48 border-white text-white hover:bg-white hover:text-black ">
-                    อ่านเพิ่มเติม
-                  </button>
+                  <Link href="/blog">
+                    <button className="border-2 p-2 w-48 border-white text-white hover:bg-white hover:text-black ">
+                      อ่านเพิ่มเติม
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -95,26 +117,44 @@ export default function Home() {
           <div className="max-w-7xl w-full p-1">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
-                <img
-                  src="/assets/gallery1.png"
-                  alt="card1"
-                  className="object-cover object-left-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
-                />
+                <a
+                  href="/assets/gallery1.png"
+                  data-fancybox="cardgallery"
+                  data-download-src="/assets/gallery1.png"
+                >
+                  <img
+                    src="/assets/gallery1.png"
+                    alt="card1"
+                    className="object-cover object-left-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                  />
+                </a>
               </div>
               <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
-                <img
-                  src="/assets/gallery2.png"
-                  alt="card2"
-                  className="object-cover w-full h-full hover:scale-110 transition-transform duration-100 absolute"
-                />
+                <a
+                  href="/assets/gallery2.png"
+                  data-fancybox="cardgallery"
+                  data-download-src="/assets/gallery2.png"
+                >
+                  <img
+                    src="/assets/gallery2.png"
+                    alt="card2"
+                    className="object-cover w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                  />
+                </a>
               </div>
 
               <div className="w-full h-72 bg-white rounded-md relative overflow-hidden">
-                <img
-                  src="/assets/gallery3.png"
-                  alt="card3"
-                  className="object-cover object-right-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
-                />
+                <a
+                  href="/assets/gallery3.png"
+                  data-fancybox="cardgallery"
+                  data-download-src="/assets/gallery3.png"
+                >
+                  <img
+                    src="/assets/gallery3.png"
+                    alt="card3"
+                    className="object-cover object-right-top w-full h-full hover:scale-110 transition-transform duration-100 absolute"
+                  />
+                </a>
               </div>
             </div>
 

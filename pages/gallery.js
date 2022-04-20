@@ -4,9 +4,22 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Footer from "../components/Footer";
+import { Fancybox } from "@fancyapps/ui";
 
 const Gallery = () => {
   const router = useRouter();
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      Toolbar: {
+        display: [
+          { id: "zoom", position: "left" },
+          { id: "download", position: "left" },
+          { id: "counter", position: "center" },
+          { id: "close", position: "right" },
+        ],
+      },
+    });
+  }, []);
   return (
     <>
       <Head>
@@ -47,6 +60,125 @@ const Gallery = () => {
 
           <section className="w-full flex flex-col justify-center items-center gap-5 p-3">
             <p className="text-white font-normal text-2xl">แกลอรี่ แมวๆ</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery1.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery1.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery1.png"
+                    alt="gallery1"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery2.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery2.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery2.png"
+                    alt="gallery2"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery3.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery3.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery3.png"
+                    alt="gallery3"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery4.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery4.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery4.png"
+                    alt="gallery4"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery5.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery5.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery5.png"
+                    alt="gallery5"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery6.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery6.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery6.png"
+                    alt="gallery6"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery7.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery7.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery7.png"
+                    alt="gallery7"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery8.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery8.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery8.png"
+                    alt="gallery8"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+              <div className="rounded-lg overflow-hidden">
+                <a
+                  href="/assets/gallery/gallery9.png"
+                  data-fancybox="gallery"
+                  data-download-src="/assets/gallery/gallery9.png"
+                >
+                  <img
+                    src="/assets/gallery/gallery9.png"
+                    alt="gallery9"
+                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                  />
+                </a>
+              </div>
+            </div>
           </section>
         </div>
       </div>
