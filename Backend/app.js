@@ -92,31 +92,31 @@ let gallery = [
     src: "/assets/gallery/gallery2.png",
   },
   {
-    id: 3,
+    id: 4,
     src: "/assets/gallery/gallery3.png",
   },
   {
-    id: 3,
+    id: 5,
     src: "/assets/gallery/gallery4.png",
   },
   {
-    id: 3,
+    id: 6,
     src: "/assets/gallery/gallery5.png",
   },
   {
-    id: 3,
+    id: 7,
     src: "/assets/gallery/gallery6.png",
   },
   {
-    id: 3,
+    id: 8,
     src: "/assets/gallery/gallery7.png",
   },
   {
-    id: 3,
+    id: 9,
     src: "/assets/gallery/gallery8.png",
   },
   {
-    id: 3,
+    id: 10,
     src: "/assets/gallery/gallery9.png",
   },
 ];
