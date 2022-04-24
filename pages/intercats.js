@@ -5,8 +5,24 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Footer from "../components/Footer";
 
+const URL = `http://localhost/api/cats`;
+
 const Intercats = () => {
+  const [cats, setCats] = useState([]);
+
   const router = useRouter();
+
+  useEffect(() => {
+    getCats();
+  }, []);
+
+  const getCats = async () => {
+    return await axios.get(URL).then((res) => {
+      if (res.data) {
+        setCats(res.data);
+      }
+    });
+  };
 
   return (
     <>
@@ -50,6 +66,48 @@ const Intercats = () => {
             <p className="text-white font-normal text-2xl">
               แมวสายพันธุ์ต่างชาติ
             </p>
+            <div className="grid grid-cols-1 gap-3 min-h-[500px] h-full w-4/5">
+              {cats
+                .filter((p) => p.type == "inter")
+                .map((item, index) => (
+                  <div
+                    key={index}
+                    className="grid grid-cols-2 bg-white rounded p-5"
+                  >
+                    <div className="flex justify-center">
+                      <img
+                        src={item.image}
+                        alt="catinter"
+                        className="w-96 h-96 object-contain object-center"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="text-xl mb-2">
+                        สายพันธุ์:
+                        <span className="ml-4 font-medium">{item.name}</span>
+                      </p>
+                      <p className="text-xl mb-2">
+                        อธิบาย:
+                        <span className="ml-4 font-light text-base">
+                          {item.description}
+                        </span>
+                      </p>
+                      <p className="text-xl mb-2">
+                        ลักษณะนิสัย:
+                        <span className="ml-4 font-light text-base">
+                          {item.character}
+                        </span>
+                      </p>
+                      <p className="text-xl mb-2">
+                        การเลี้ยงดู:
+                        <span className="ml-4 font-light text-base">
+                          {item.treatment}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                ))}
+            </div>
           </section>
         </div>
       </div>

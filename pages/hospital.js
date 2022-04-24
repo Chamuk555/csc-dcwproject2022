@@ -4,9 +4,27 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Footer from "../components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
+const URL = `http://localhost/api/hospital`;
 const Hospital = () => {
+  const [hospitals, setHospitals] = useState([]);
+
   const router = useRouter();
+
+  useEffect(() => {
+    getHospital();
+  }, []);
+
+  const getHospital = async () => {
+    return await axios.get(URL).then((res) => {
+      if (res.data) {
+        setHospitals(res.data);
+      }
+    });
+  };
+
   return (
     <>
       <Head>
@@ -64,11 +82,18 @@ const Hospital = () => {
                     รักษา​สัตว์พิเศษ​ สุนัข​แมว​ เคสฉุกเฉิน ผ่าตัดกระดูก​
                     ถ่ายเลือด​​ ผสมเทียม
                   </p>
-                  <p className="text-sm">
+                  <p className="text-sm inline-flex">
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className="h-7 w-7 mr-4"
+                    />
                     18/20 ถนนแม่หลวน ตำบลตลาดเหนือ อำเภอเมือง จังหวัดภูเก็ต
                     เทศบาลนครภูเก็ต, จังหวัดภูเก็ต 83000
                   </p>
-                  <p className="text-sm">095 278 0789</p>
+                  <p className="text-sm inline-flex">
+                    <FontAwesomeIcon icon={faPhone} className="h-5 w-5 mr-4" />
+                    095 278 0789
+                  </p>
                   <Link href="/hospital">
                     <div className="py-5">
                       <button className="border-2 p-2 w-48    ">
@@ -79,36 +104,48 @@ const Hospital = () => {
                 </div>
               </div>
             </div>
-            <div className="min-h-[300px] h-full w-full border-2 border-white max-w-5xl hover:bg-white hover:text-black text-white">
-              <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
-                <div className="w-full h-full p-5 flex items-center justify-center">
-                  <img
-                    src="/assets/hospital/126.jpg"
-                    alt="hospital"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                <div className="w-full h-full p-5 gap-2 flex flex-col justify-center">
-                  <p className="text-xl">โรงพยาบาลสัตว์แม่หลวนภูเก็ต</p>
-                  <p className="text-base">
-                    รักษา​สัตว์พิเศษ​ สุนัข​แมว​ เคสฉุกเฉิน ผ่าตัดกระดูก​
-                    ถ่ายเลือด​​ ผสมเทียม
-                  </p>
-                  <p className="text-sm">
-                    18/20 ถนนแม่หลวน ตำบลตลาดเหนือ อำเภอเมือง จังหวัดภูเก็ต
-                    เทศบาลนครภูเก็ต, จังหวัดภูเก็ต 83000
-                  </p>
-                  <p className="text-sm">095 278 0789</p>
-                  <Link href="/hospital">
-                    <div className="py-5">
-                      <button className="border-2 p-2 w-48    ">
-                        ติดต่อโรงพยาบาล
-                      </button>
-                    </div>
-                  </Link>
+            {hospitals.map((item) => (
+              <div
+                key={item.id}
+                className="min-h-[300px] h-full w-full border-2 border-white max-w-5xl hover:bg-white hover:text-black text-white"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
+                  <div className="w-full h-full p-5 flex items-center justify-center">
+                    <img
+                      src={item.image}
+                      alt="hospital"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="w-full h-full p-5 gap-2 flex flex-col justify-center">
+                    <p className="text-xl">{item.name}</p>
+                    <p className="text-base">{item.description}</p>
+                    <p className="text-sm inline-flex">
+                      <FontAwesomeIcon
+                        icon={faLocationDot}
+                        className="h-7 w-7 mr-4"
+                      />
+                      {item.location}
+                    </p>
+                    <p className="text-sm inline-flex">
+                      <FontAwesomeIcon
+                        icon={faPhone}
+                        className="h-5 w-5 mr-4"
+                      />
+
+                      {item.phone}
+                    </p>
+                    <Link href={item.slug}>
+                      <div className="py-5">
+                        <button className="border-2 p-2 w-48    ">
+                          ติดต่อโรงพยาบาล
+                        </button>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </section>
         </div>
       </div>

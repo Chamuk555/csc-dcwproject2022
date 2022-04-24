@@ -56,7 +56,7 @@ const Blog = () => {
                   <img
                     src="/assets/gallery/gallery1.png"
                     alt="card11"
-                    className="w-full h-full object-cover"
+                    className="w-full h-52 object-cover"
                   />
                   <div className="overflow-hidden p-2">
                     <p>เรื่องควรรู้ของทาสแมว...มือใหม่ !!</p>
@@ -75,6 +75,61 @@ const Blog = () => {
                   </div>
                   <div className="py-2">
                     <Link href="https://www.yippeehappy.com/th/blog/detail/774/%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B2%E0%B8%AA%E0%B9%81%E0%B8%A1%E0%B8%A7-%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88">
+                      <button className="border-2 border-black text-black px-2 py-1 hover:bg-black hover:text-white w-fit">
+                        อ่านเพิ่มเติม
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="max-h-[450px] w-full  h-full rounded-lg overflow-hidden ">
+                <div className="grid w-full h-full grid-cols-1 gap-2 bg-white justify-items-center ">
+                  <img
+                    src="https://img.my-best.in.th/press_component/images/b1c1b9e9226605ad19e0d409f728aa10.jpg?ixlib=rails-4.2.0&q=70&lossless=0&w=690&fit=max"
+                    alt="card11"
+                    className="w-full h-52 object-cover"
+                  />
+                  <div className="overflow-hidden p-2">
+                    <p>วิธีการเลือกโรงพยาบาลสัตว์ ภูเก็ต</p>
+                    <p className="text-sm font-light">
+                      ทุกครั้งเวลาที่สัตว์เลี้ยงป่วยหรือมีอาการผิดปกติ
+                      ถึงแม้ว่าเจ้าของจะรักและใส่ใจในสัตว์เลี้ยงมากแค่ไหนก็ไม่อาจรู้ได้เลยว่าสัตว์เลี้ยงนั้นป่วยหรือเป็นโรคอะไร
+                      หากเป็นอาการที่เจ้าของสามารถเห็นด้วยตาเปล่า เช่น
+                      เดินไม่มั่นคง หรือถ่ายเหลว เจ้าของอาจจะประเมินอาการเองได้
+                      แต่หากมีอาการที่ไม่ระบุชัดเจนก็ยากที่จะบอกได้ว่าสัตว์เลี้ยงของคุณป่วยในรูปแบบไหน
+                      เพื่อแก้ปัญหานี้
+                    </p>
+                  </div>
+                  <div className="py-2">
+                    <Link href="https://my-best.in.th/52190?fbclid=IwAR1u8EhkfZaxDRHHB6KTvQOUIfZkrsenbOWBKmLoZYkpDXg3xthb397_aDM#toc-0">
+                      <button className="border-2 border-black text-black px-2 py-1 hover:bg-black hover:text-white w-fit">
+                        อ่านเพิ่มเติม
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="max-h-[450px] w-full  h-full rounded-lg overflow-hidden ">
+                <div className="grid w-full h-full grid-cols-1 gap-2 bg-white justify-items-center ">
+                  <img
+                    src="https://www.purinaone.co.th//sites/site.prod.purinaone.co.th/files/thumb_4.jpg"
+                    alt="card11"
+                    className="w-full h-52 object-cover"
+                  />
+                  <div className="overflow-hidden p-2">
+                    <p>ลูกแมวท้องเสีย ทำอย่างไรดี</p>
+                    <p className="text-sm font-light">
+                      ปัญหาหนึ่งที่ชวนให้เจ้าของแมวปวดหัว
+                      คงหนีไม่พ้นปัญหาลูกแมวท้องเสีย
+                      เพราะเจ้าของแมวหลายคนอาจยังไม่รู้ว่าอาการท้องเสียหรือถ่ายเหลวในลูกแมวนั้นเกิดจากอะไร
+                      หรือควรจัดการอย่างไรบ้าง
+                      โดยเฉพาะอย่างยิ่งเจ้าของแมวมือใหม่
+                      แต่อย่าเพิ่งตกใจหรือเป็นกังวลไป เพราะในบทความนี้
+                      เรามีเรื่องน่ารู้เกี่ยวกับอาการท้องเสียในลูกแมวมาฝากกัน
+                    </p>
+                  </div>
+                  <div className="py-2">
+                    <Link href="https://www.purinaone.co.th/article/diarrhea-cat-treatment">
                       <button className="border-2 border-black text-black px-2 py-1 hover:bg-black hover:text-white w-fit">
                         อ่านเพิ่มเติม
                       </button>

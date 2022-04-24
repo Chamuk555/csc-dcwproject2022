@@ -6,8 +6,24 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 import { Fancybox } from "@fancyapps/ui";
 
+const URL = `http://localhost/api/gallery`;
+
 const Gallery = () => {
+  const [images, setImages] = useState([]);
+
   const router = useRouter();
+
+  useEffect(() => {
+    getGallery();
+  }, []);
+
+  const getGallery = async () => {
+    return await axios.get(URL).then((res) => {
+      if (res.data) {
+        setImages(res.data);
+      }
+    });
+  };
   useEffect(() => {
     Fancybox.bind('[data-fancybox="gallery"]', {
       Toolbar: {
@@ -74,110 +90,21 @@ const Gallery = () => {
                   />
                 </a>
               </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery2.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery2.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery2.png"
-                    alt="gallery2"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery3.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery3.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery3.png"
-                    alt="gallery3"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery4.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery4.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery4.png"
-                    alt="gallery4"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery5.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery5.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery5.png"
-                    alt="gallery5"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery6.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery6.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery6.png"
-                    alt="gallery6"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery7.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery7.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery7.png"
-                    alt="gallery7"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery8.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery8.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery8.png"
-                    alt="gallery8"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
-              <div className="rounded-lg overflow-hidden">
-                <a
-                  href="/assets/gallery/gallery9.png"
-                  data-fancybox="gallery"
-                  data-download-src="/assets/gallery/gallery9.png"
-                >
-                  <img
-                    src="/assets/gallery/gallery9.png"
-                    alt="gallery9"
-                    className="object-cover w-full h-full object-center hover:scale-110 duration-200"
-                  />
-                </a>
-              </div>
+              {images.map((item, index) => (
+                <div key={index} className="rounded-lg overflow-hidden">
+                  <a
+                    href={item.src}
+                    data-fancybox="gallery"
+                    data-download-src={item.src}
+                  >
+                    <img
+                      src={item.src}
+                      alt="gallery"
+                      className="object-cover w-full h-full object-center hover:scale-110 duration-200"
+                    />
+                  </a>
+                </div>
+              ))}
             </div>
           </section>
         </div>

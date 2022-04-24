@@ -8,19 +8,19 @@ import withAuth from "../components/Auth";
 import useSWR, { mutate } from "swr";
 import AdminNav from "../components/AdminNav";
 
-const URL = `http://localhost/api/cats`;
+const URL = `http://localhost/api/hospital`;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-const Dashboard = ({ token }) => {
+const AdminHospital = ({ token }) => {
   const router = useRouter();
 
-  const [cat, setCat] = useState([]);
+  const [hospital, setHospital] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [character, setCharacter] = useState("");
-  const [treatment, setTreatment] = useState("");
+  const [location, setLocation] = useState("");
+  const [phone, setPhone] = useState("");
   const [image, setImage] = useState("");
-  const [type, setType] = useState("");
+  const [slug, setSlug] = useState("");
 
   const { data, error } = useSWR(URL, fetcher);
   if (!data) {
@@ -31,52 +31,45 @@ const Dashboard = ({ token }) => {
     );
   }
 
-  const addCat = async (
+  const addHospitall = async (
     name,
     description,
-    character,
-    treatment,
+    location,
+    phone,
     image,
-    type
+    slug
   ) => {
-    await axios.post(URL, {
-      name,
-      description,
-      character,
-      treatment,
-      image,
-      type,
-    });
+    await axios.post(URL, { name, description, location, phone, image, slug });
     mutate(URL);
   };
 
-  const getCat = async (id) => {
+  const getHospital = async (id) => {
     return await axios.get(`${URL}/${id}`).then((res) => {
       if (res.data) {
-        setCat(res.data);
+        setHospital(res.data);
         setName(res.data.name);
         setDescription(res.data.description);
-        setCharacter(res.data.character);
-        setTreatment(res.data.treatment);
+        setLocation(res.data.location);
+        setPhone(res.data.phone);
         setImage(res.data.image);
-        setType(res.data.type);
+        setSlug(res.data.slug);
       }
     });
   };
 
-  const deleteCat = async (id) => {
+  const deleteHospital = async (id) => {
     await axios.delete(`${URL}/${id}`);
     mutate(URL);
   };
 
-  const updateCat = async (id) => {
+  const updateHospital = async (id) => {
     await axios.put(`${URL}/${id}`, {
       name,
       description,
-      character,
-      treatment,
+      location,
+      phone,
       image,
-      type,
+      slug,
     });
     mutate(URL);
   };
@@ -92,27 +85,27 @@ const Dashboard = ({ token }) => {
       <div className="w-full min-h-screen h-full bg-black flex justify-center p-5 relative overflow-hidden">
         <div className="max-w-7xl w-full p-1 z-10">
           <section className="w-full flex flex-col justify-center items-center gap-5 p-3">
-            <p className="text-white font-normal text-2xl">จัดการพันธ์ุแมว</p>
+            <p className="text-white font-normal text-2xl">จัดการโรงพยาบาล</p>
           </section>
 
           <section className="bg-white rounded-lg my-2 w-full h-full">
             <div className="p-10 grid grid-cols-2 gap-3 w-full max-h-96 h-full">
               <div className="w-full h-full overflow-hidden">
                 <img
-                  src={cat.image}
-                  alt="cat"
+                  src={hospital.image}
+                  alt="profile"
                   className="object-contain w-full h-full object-center"
                 />
               </div>
               <div>
                 <div className="inline-flex w-full items-end mb-2 ">
-                  <p className="w-1/5"> ชื่อพันธุ์แมว </p>
+                  <p className="w-1/5"> ชื่อโรงพยาบาล </p>
 
                   <input
                     className="appearance-none bg-transparent border-b border-teal-500  text-black    py-1 px-2 leading-tight focus:outline-none font-light w-96"
                     type="text"
                     id="name"
-                    defaultValue={cat.name}
+                    defaultValue={hospital.name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
@@ -123,30 +116,30 @@ const Dashboard = ({ token }) => {
                     className="appearance-none bg-transparent border-b border-teal-500  text-black  py-1 px-2 leading-tight focus:outline-none  h-full font-light w-96"
                     type="text"
                     id="description"
-                    defaultValue={cat.description}
+                    defaultValue={hospital.description}
                     onChange={(e) => setDescription(e.target.value)}
                   />
                 </div>
                 <div className="inline-flex w-full items-end mb-2 ">
-                  <p className="w-1/5"> ลักษณะนิสัย </p>
+                  <p className="w-1/5"> ที่อยู่ </p>
 
                   <input
                     className="appearance-none bg-transparent border-b border-teal-500  text-black   py-1 px-2 leading-tight focus:outline-none font-light w-96"
                     type="text"
-                    id="character"
-                    defaultValue={cat.character}
-                    onChange={(e) => setCharacter(e.target.value)}
+                    id="location"
+                    defaultValue={hospital.location}
+                    onChange={(e) => setLocation(e.target.value)}
                   />
                 </div>
                 <div className="inline-flex w-full items-end mb-2 ">
-                  <p className="w-1/5"> การเลี้ยงดู </p>
+                  <p className="w-1/5"> โทรศัพท์ </p>
 
                   <input
                     className="appearance-none bg-transparent border-b border-teal-500  text-black   py-1 px-2 leading-tight focus:outline-none font-light w-96"
                     type="text"
-                    id="treatment"
-                    defaultValue={cat.treatment}
-                    onChange={(e) => setTreatment(e.target.value)}
+                    id="location"
+                    defaultValue={hospital.phone}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
 
@@ -156,45 +149,40 @@ const Dashboard = ({ token }) => {
                   <input
                     className="appearance-none bg-transparent border-b border-teal-500  text-black   py-1 px-2 leading-tight focus:outline-none font-light w-96"
                     type="text"
-                    id="image"
-                    defaultValue={cat.image}
+                    id="location"
+                    defaultValue={hospital.image}
                     onChange={(e) => setImage(e.target.value)}
                   />
                 </div>
 
                 <div className="inline-flex w-full items-end mb-2 ">
-                  <p className="w-1/5"> ประเภท </p>
-                  <select
-                    name="typecat"
-                    id="type"
-                    defaultValue={cat.type}
-                    onChange={(e) => setType(e.target.value)}
-                  >
-                    <option value="" selected disabled hidden>
-                      เลือกสายพันธุ์
-                    </option>
-                    <option value="inter"> แมวสายพันธุ์ต่างประเทศ </option>
-                    <option value="thai"> แมวสายพันธุ์ไทย </option>
-                    <option value="special"> แมวสายพันธุ์แปลก </option>
-                  </select>
+                  <p className="w-1/5"> เว็บไซต์ </p>
+
+                  <input
+                    className="appearance-none bg-transparent border-b border-teal-500  text-black   py-1 px-2 leading-tight focus:outline-none font-light w-96"
+                    type="text"
+                    id="location"
+                    defaultValue={hospital.slug}
+                    onChange={(e) => setSlug(e.target.value)}
+                  />
                 </div>
 
                 <div className="inline-flex w-full justify-center my-2 gap-3">
                   <button
-                    onClick={() => updateCat(cat.id)}
+                    onClick={() => updateHospital(hospital.id)}
                     className="bg-yellow-500 px-5 py-2 w-48 rounded-md text-white"
                   >
                     แก้ไขข้อมูลเดิม
                   </button>
                   <button
                     onClick={() =>
-                      addCat(
+                      addHospitall(
                         name,
                         description,
-                        character,
-                        treatment,
+                        location,
+                        phone,
                         image,
-                        type
+                        slug
                       )
                     }
                     className="bg-green-600 px-5 py-2 w-48 rounded-md text-white"
@@ -208,11 +196,11 @@ const Dashboard = ({ token }) => {
               <table className="table-auto w-full border-collapse border">
                 <thead>
                   <tr>
-                    <th className="border font-medium w-1/12">ลำดับที่</th>
-                    <th className="border font-medium w-3/12">ชื่อสายพันธุ์</th>
-                    <th className="border font-medium w-2/12">ประเภท</th>
-                    <th className="border font-medium w-3/12">รูปภาพ</th>
-                    <th className="border font-medium w-3/12">จัดการ</th>
+                    <th className="border font-medium w-1/6">ลำดับที่</th>
+                    <th className="border font-medium w-2/6">ชื่อโรงพยาบาล</th>
+
+                    <th className="border font-medium w-1/6">ลิ้งค์ภายนอก</th>
+                    <th className="border font-medium w-2/6">จัดการ</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -220,24 +208,23 @@ const Dashboard = ({ token }) => {
                     <tr key={index}>
                       <td className="text-center border">{index + 1}</td>
                       <td className="text-center border">{item.name}</td>
-                      <td className="text-center border">{item.type}</td>
-                      <td className="text-center border flex justify-center">
-                        <img
-                          src={item.image}
-                          alt="thump"
-                          className="w-52 h-52 object-contain object-center"
-                        />
+                      <td className="text-center border">
+                        <Link href={item.slug}>
+                          <button className="bg-blue-400 px-5 py-2 w-fit rounded-md text-white ">
+                            ไปเว็บไซต์โรงพยาล
+                          </button>
+                        </Link>
                       </td>
                       <td className="border ">
                         <div className="inline-flex justify-center w-full gap-3 m-2">
                           <button
-                            onClick={() => deleteCat(item.id)}
+                            onClick={() => deleteHospital(item.id)}
                             className="bg-red-500 px-5 py-2 w-24 rounded-md text-white"
                           >
                             ลบ
                           </button>
                           <button
-                            onClick={() => getCat(item.id)}
+                            onClick={() => getHospital(item.id)}
                             className="bg-yellow-500 px-5 py-2 w-24 rounded-md text-white"
                           >
                             แก้ไข
@@ -257,7 +244,7 @@ const Dashboard = ({ token }) => {
   );
 };
 
-export default withAuth(Dashboard);
+export default withAuth(AdminHospital);
 
 export function getServerSideProps({ req, res }) {
   return { props: { token: req.cookies.token || "" } };

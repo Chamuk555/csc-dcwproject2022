@@ -20,6 +20,7 @@ const Login = ({ token }) => {
         { username, password, ischeck },
         { withCredentials: true }
       );
+
       setStatus("Sign-in success");
       router.push("/dashboard");
     } catch (e) {
